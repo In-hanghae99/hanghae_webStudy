@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'GmarketSansBold';
+        }
+
+        @font-face {
+            font-family: 'GmarketSansBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: 100px auto;
+        }
+
+        .infomation {
+            height: 487px;
+        }
+        .user-place {
+            margin-top: 50px;
+        }
+
+        .form-control,
+        .form-control option {
+            font-family: 'GmarketSansMedium';
+        }
+
+        .btn {
+            width: 400px;
+            height: 50px;
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="infomation">
+            <div class="form-group user-name">
+                <label for="user-name" style="font-size: 20px">이름을 입력하세요</label>
+                <input type="text" class="form-control" id="user-name" placeholder="가능한 실명으로 입력해주세요!">
+            </div>
+            <div class="form-group user-place">
+                <label for="user-place" style="font-size: 20px">현재 사는곳은 어디인가요?</label>
+                <select class="form-control" id="user-place">
+                    <option>선택해주세요!</option>
+                    <option>제주</option>
+                    <option>강원</option>
+                    <option>부산</option>
+                    <option>서울</option>
+                    <option>경기</option>
+                    <option>인천</option>
+                    <option>충북</option>
+                    <option>충남</option>
+                    <option>경북</option>
+                    <option>경남</option>
+                    <option>전북</option>
+                    <option>전남</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn">확인하기</button>
+    </div>
+</body>
+
+</html>
