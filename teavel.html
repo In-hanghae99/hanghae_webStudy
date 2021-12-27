@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>여행지추천</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'GmarketSansBold';
+        }
+
+        @font-face {
+            font-family: 'GmarketSansBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        main {
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .main-contents {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .main-contents h2 {
+            font-size: 35px;
+        }
+        .main-contents p {
+            font-family: 'GmarketSansMedium';
+            font-size: 15px;
+        }
+        .btn-warning {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+
+        function result() {
+            let name = $('#Input1').val();
+            $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+                data: {},
+                success: function (response) {
+                    let rows = response['RealtimeCityAir']['row']
+                    for (let i =0; i <rows.length; i++){
+                        let gu_mise = rows[i]['IDEX_MVL']
+                        let gu_name = rows[i]['MSRSTE_NM']
+                        if (gu_name == name && gu_mise <60){
+                            alert('공기가 나쁘니 집에 있어요')
+                        } else if (gu_mise >60 && gu_name == name){
+                            alert('공기도 좋으니 간만에 나가볼까요?')
+                        }
+                    }
+                }
+            })
+        }
+
+        function result2() {
+            let name = $('#Input1').val();
+           $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/7a4e6b634f6e61683439777a735441/json/ListRainfallService/1/55/",
+                data: {},
+                success: function (response) {
+                    let rows = response['ListRainfallService']['row']
+                    for (let i = 0; i < rows.length; i++) {
+                        let gu_name = rows[i]['GU_NAME']
+                        let rain = rows[i]['RAINFALL10']
+                         if (rain > 1 && gu_name == name) {
+                            alert("비가 오니 집에서 책 보는건 어때요?")
+                        } else if (rain == 0 && gu_name == name) {
+                            alert("날씨도 화창하니 간만에 나가볼까요!")
+                        }
+                    }
+                }
+            })
+        }
+
+        // function detail(){
+        //     window.location.href ="/detail"
+        // }
+    </script>
+</head>
+
+<body>
+<main>
+    <div class="main-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/4683/4683590.png" width="350px">
+    </div>
+    <div class="main-contents">
+        <h2>
+            집순이, 집돌이는<br>
+            오늘 나가도 될까?
+        </h2>
+        <p class="comment">
+            오늘의 미세먼지 정보를 확인하고<br>
+            나가도 될지 알려드릴게요!
+        </p>
+    </div>
+    <div class="form-group">
+             <div class="form-group user-place">
+                <label for="user-place" style="font-size: 20px">현재 사는곳은 어디인가요?</label>
+                <!-- <select class="form-control" id="user-place"> -->
+                <select class="form-control" id="Input1">
+                    <option>지역을 선택해 주세요!</option>
+                    <option>중구</option>
+                    <option>종로구</option>
+                    <option>용산구</option>
+                    <option>은평구</option>
+                    <option>서대문구</option>
+                    <option>마포구</option>
+                    <option>광진구</option>
+                    <option>성동구</option>
+                    <option>중랑구</option>
+                    <option>동대문구</option>
+                    <option>성북구</option>
+                    <option>도봉구</option>
+                    <option>강북구</option>
+                    <option>노원구</option>
+                    <option>강서구</option>
+                    <option>구로구</option>
+                    <option>영등포구</option>
+                    <option>동작구</option>
+                    <option>관악구</option>
+                    <option>금천구</option>
+                    <option>양천구</option>
+                    <option>강남구</option>
+                    <option>서초구</option>
+                    <option>송파구</option>
+                    <option>강동구</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-warning" onclick="result(),result2()" >확인하기</button>
+        </div>
+    <footer>
+        <div style="display: none">
+            Stickers made by <a href="https://www.flaticon.com/authors/stickers" title="스티커">스티커</a>
+            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        </div>
+    </footer>
+<main>
+</body>
+
+</html>
