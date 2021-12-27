@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <!-- Webpage Title -->
+    <title>집 밖은 위험해</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+
+    <title>19조</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Jua', sans-serif;
+        }
+
+        .wrap {
+            margin: auto;
+            width: 900px;
+        }
+
+
+        .jumbotron {
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrSvH-We6SEh_tzR1e5xgBC1INWkqlctKfIQ&usqp=CAU");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+
+    <script>
+        function q1() {
+            let living = $('#living').val()
+            $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+                data: {},
+                success: function (response) {
+                    let rows = response['RealtimeCityAir']['row']
+                    for (let i = 0; i < rows.length; i++) {
+                        let gu_name = rows[i]['MSRSTE_NM']
+                        let mise = rows[i]['IDEX_MVL']
+                        if (mise > 50 && gu_name == living) {
+                            alert("공기가 나쁘니 집에 있어요")
+                        } else if (mise <= 50 && gu_name == living) {
+                            alert("공기도 좋으니 간만에 나가볼까요")
+                        //   else alert가 너무 많이뜸...
+                        }
+                    }
+                }
+            })
+        }
+        function q2() {
+            let living = $('#living').val()
+           $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/7a4e6b634f6e61683439777a735441/json/ListRainfallService/1/55/",
+                data: {},
+                success: function (response) {
+                    let rows = response['ListRainfallService']['row']
+                    for (let i = 0; i < rows.length; i++) {
+                        let gu_name = rows[i]['GU_NAME']
+                        let rain = rows[i]['RAINFALL10']
+                        let code = rows[i]['RAINGAUGE_CODE']
+                         if (rain > 1 && gu_name == living) {
+                            alert("비가 오니 집에서 책 보는건 어때요?")
+                        } else if (rain == 0 && gu_name == living) {
+                            alert("날씨도 화창하니 간만에 나가볼까요")
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+<div class="wrap">
+    <div class="jumbotron">
+        <h1 class="display-4">집 밖은 위험해</h1>
+        <p class="lead">미세먼지와 날씨로 현재 밖의 위험도를 알려드려요!</p>
+        <hr class="my-4">
+        <h3>우선순위 체크!!</h3>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">주소</span>
+            </div>
+            <input id="living" type="text" class="form-control" placeholder="현재 살고 계시는 주소(구)" aria-label="Username"
+                   aria-describedby="basic-addon1">
+        </div>
+        <button onclick="q1(), q2()">확인</button>
+    </div>
+    <div class="card-group">
+
+    </div>
+</div>
+</body>
+
+
+</html>
