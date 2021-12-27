@@ -79,9 +79,11 @@
                         let gu_mise = rows[i]['IDEX_MVL']
                         let gu_name = rows[i]['MSRSTE_NM']
                         if (gu_name == name && gu_mise <60){
-                            alert('공기가 나쁘니 집에 있어요')
+                            alert('공기가 나쁘니 집에 있어요');
+                            break;
                         } else if (gu_mise >60 && gu_name == name){
-                            alert('공기도 좋으니 간만에 나가볼까요?')
+                            alert('공기도 좋으니 간만에 나가볼까요?');
+                            break;
                         }
                     }
                 }
@@ -100,9 +102,11 @@
                         let gu_name = rows[i]['GU_NAME']
                         let rain = rows[i]['RAINFALL10']
                          if (rain > 1 && gu_name == name) {
-                            alert("비가 오니 집에서 책 보는건 어때요?")
+                            alert("비가 오니 집에서 책 보는건 어때요?");
+                            break;
                         } else if (rain == 0 && gu_name == name) {
-                            alert("날씨도 화창하니 간만에 나가볼까요!")
+                            alert("날씨도 화창하니 간만에 나가볼까요!");
+                            break;
                         }
                     }
                 }
