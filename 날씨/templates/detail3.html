@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>오늘의 결과는?</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'GmarketSansBold';
+        }
+
+        @font-face {
+            font-family: 'GmarketSansBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        main {
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .main-contents {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .main-contents h2 {
+            font-size: 35px;
+            margin-bottom: 30px;
+        }
+
+        .main-contents p {
+            font-family: 'GmarketSansMedium';
+            font-size: 15px;
+            margin-bottom: 50px;
+        }
+
+        .btn-warning {
+            margin-top: 10px;
+        }
+        .card{
+            border: none;
+        }
+        .point{
+            font-family:'GmarketSansBold';
+            font-size: large;
+            color: darkorange;
+        }
+    </style>
+    <script>
+        function home() {
+            window.location.href = "/";
+        }
+    </script>
+</head>
+
+<body>
+<main>
+    <div class="main-img">
+    </div>
+    <div class="main-contents">
+        <h2>
+            집순이, 집돌이는<br>
+            오늘 나가도 될까?
+        </h2>
+        <p class="comment">
+            오늘은 미세먼지가 심해요! 마스크를 꼭 쓰세요 <br>
+            오늘은 해가 쨍쨍해요! <br>
+            <span class="point">오늘 같은날엔 마스크를 끼고 나가보는건 어때요? <br></span>
+            <span class="point">하지만 추천은 안할께요</span>
+        </p>
+    </div>
+    <div class="form-group">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/2910/2910199.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">공기가 나쁘니 오늘은 집에 있는게 좋겠어요</p>
+                    <p class="card-text"><small class="text-muted"></small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://cdn-icons.flaticon.com/png/512/1959/premium/1959304.png?token=exp=1640667512~hmac=049b2d811d9f3c0c42c0894dba20b143" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">날씨가 화창하니 오늘은 나가볼까요?!</p>
+                    <p class="card-text"><small class="text-muted"></small></p>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-warning" onclick="home()">다시 검사하기!</button>
+    </div>
+    <footer>
+        <div style="display: none">
+            Stickers made by <a href="https://www.flaticon.com/authors/stickers" title="스티커">스티커</a>
+            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        </div>
+    </footer>
+    <main>
+</body>
+
+</html>
