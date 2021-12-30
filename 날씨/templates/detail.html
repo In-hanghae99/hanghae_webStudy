@@ -44,78 +44,140 @@
         }
 
         main {
-            width: 500px;
+            width: 600px;
             margin: 50px auto;
             text-align: center;
         }
 
-        .main-contents {
-            margin-top: 20px;
-            margin-bottom: 20px;
+        .detail-title h2 {
+            font-size: 30px;
         }
 
-        .main-contents h2 {
+        .detail-title h2 span {
             font-size: 35px;
-            margin-bottom: 30px;
-        }
-
-        .main-contents p {
-            font-family: 'GmarketSansMedium';
-            font-size: 15px;
-            margin-bottom: 50px;
         }
 
         .btn-warning {
             margin-top: 10px;
         }
         .card{
+            margin-top: 50px;
             border: none;
         }
-        .point{
+
+        /*.point{
             font-family:'GmarketSansBold';
             font-size: large;
             color: darkorange;
-        }
+        }*/
+
     </style>
     <script>
+        $(document).ready(function() {
+            getHtml();
+        });
 
+        //메인페이지 선택 값 불러오기
+        let getLink = window.location.search;
+        let getGuName = getLink.split('=');	//getLink를 '='를 기준으로 두 배열 요소로 분리
+        let getOnlyGuName = getGuName[1];
+        let decodeGuName = decodeURI(getOnlyGuName);
+        let GuName = decodeGuName
+        getHtml(GuName);
+
+        function getHtml() {
+            let getHtml = `<h2>현재 <span id="gu_name">${GuName}</span>의 날씨와 미세먼지는,</h2>`
+            $('#putName').append(getHtml);
+        }
+
+        //메인페이지로 이동
         function home() {
             window.location.href = "/";
         }
+
+        /*function air() {
+            let name = $('#Input1').val();
+            $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+                data: {},
+                success: function (response) {
+                    let rows = response['RealtimeCityAir']['row']
+                    for (let i = 0; i < rows.length; i++) {
+                        let gu_mise = rows[i]['IDEX_MVL']
+                        let gu_name = rows[i]['MSRSTE_NM']
+                        if (gu_name == name && gu_mise < 80) {
+                            return weather()
+                        } else if (gu_mise > 80 && gu_name == name) {
+                            return weather2()
+                        }
+                    }
+                }
+            })
+        }
+
+        function weather() {
+            let name = $('#Input1').val();
+           $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/7a4e6b634f6e61683439777a735441/json/ListRainfallService/1/55/",
+                data: {},
+                success: function (response) {
+                    let rows = response['ListRainfallService']['row']
+                    for (let i = 0; i < rows.length; i++) {
+                        let gu_name = rows[i]['GU_NAME']
+                        let rain = rows[i]['RAINFALL10']
+                         if (rain > 1 && gu_name == name) {
+                             location.replace(detail4);
+                        } else if (rain == 0 && gu_name == name) {
+                             location.replace(detail2);
+                        }
+                    }
+                }
+            })
+        }
+
+        function weather2() {
+            let name = $('#Input1').val();
+           $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/7a4e6b634f6e61683439777a735441/json/ListRainfallService/1/55/",
+                data: {},
+                success: function (response) {
+                    let rows = response['ListRainfallService']['row']
+                    for (let i = 0; i < rows.length; i++) {
+                        let gu_name = rows[i]['GU_NAME']
+                        let rain = rows[i]['RAINFALL10']
+                         if (rain > 1 && gu_name == name) {
+                             location.replace(detail);
+                        } else if (rain == 0 && gu_name == name) {
+                             location.replace(detail3);
+                        }
+                    }
+                }
+            })
+        } */
     </script>
 </head>
 
 <body>
 <main>
-    <div class="main-img">
+    <div class="detail-title" id="putName">
     </div>
-    <div class="main-contents">
-        <h2>
-            집순이, 집돌이는<br>
-            오늘 나가도 될까?
-        </h2>
-        <p class="comment">
-            오늘은 미세먼지가 심해요! 마스크를 꼭 쓰세요<br>
-            오늘은 비가 와요 우산을 꼭 챙기세요 <br>
-            <span class="point">오늘 같은날 꼭 나가야 겠어요?</span>
-        </p>
-    </div>
-    <div class="form-group">
+    <div class="form-group detail-contents">
         <div class="card-deck">
             <div class="card">
-                <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/2910/2910199.png" alt="Card image cap">
+                <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/2910/2910199.png" alt="Card image cap" width="50%">
                 <div class="card-body">
                     <h5 class="card-title"></h5>
                     <p class="card-text">공기가 나쁘니 오늘은 집에 있는게 좋겠어요</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
                 </div>
             </div>
             <div class="card">
-                <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/704/704832.png" alt="Card image cap">
+                <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/704/704832.png" alt="Card image cap" width="50%">
                 <div class="card-body">
                     <h5 class="card-title"></h5>
                     <p class="card-text">오늘은 비가 와요 우산을 챙기세요</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
                 </div>
             </div>
         </div>
