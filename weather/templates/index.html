@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>오늘은 나갈수 있을까?</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'GmarketSansBold';
+        }
+
+        @font-face {
+            font-family: 'GmarketSansBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        main {
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .main-contents {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .main-contents h2 {
+            font-size: 35px;
+        }
+        .main-contents p {
+            font-family: 'GmarketSansMedium';
+            font-size: 15px;
+        }
+        .btn-warning {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        //detail페이지로 값 넘기기
+        function sendGuName() {
+            let guName = $('#Input1').val();
+            window.location.href = "/detail?guName=" + guName;
+        }
+    </script>
+</head>
+
+<body>
+<main>
+    <div class="main-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/4683/4683590.png" width="350px">
+    </div>
+    <div class="main-contents">
+        <h2>
+            집순이, 집돌이는<br>
+            오늘 나가도 될까?
+        </h2>
+        <p class="comment">
+            현재 지역의 날씨와 미세먼지 정보를 확인하고<br>
+            나가도 될지 알려드릴게요!
+        </p>
+    </div>
+        <div class="form-group">
+             <div class="form-group user-place">
+                <select class="form-control" id="Input1">
+                    <option>지역을 선택해 주세요!</option>
+                    <option value ="seoul">서울시</option>
+                    <option value ="busan">부산시</option>
+                    <option value ="daejeon">대전시</option>
+                    <option value="incheon">인천시</option>
+                    <option value="sejong">세종시</option>
+                    <option value="gwangju">광주시</option>
+                    <option value="ulsan">울산시</option>
+                    <option value="jeju">제주시</option>
+
+                </select>
+            </div>
+            <button type="button" class="btn btn-warning" onclick="sendGuName()" >확인하기</button>
+        </div>
+    <footer>
+        <div style="display: none">
+            Stickers made by <a href="https://www.flaticon.com/authors/stickers" title="스티커">스티커</a>
+            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        </div>
+    </footer>
+</main>
+</body>
+
+</html>
