@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1d05124-855c-4c8f-a691-9352c5ab651c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ddddd.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hyejin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lib.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../seungho02.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ssss.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../teavel.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../travel.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../travel_sb.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../날씨/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../날씨/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../날씨/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../날씨/.idea/날씨.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../날씨/.idea/날씨.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +37,10 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Flask server.Flask (app.py)">
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/weather/templates/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="날씨" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="날씨" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,6 +80,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="Flask server.Flask (app.py)" />
         <item itemvalue="Python.날씨" />
       </list>
@@ -101,7 +95,8 @@
       <option name="presentableId" value="Default" />
       <updated>1640848208923</updated>
       <workItem from="1640848219712" duration="113000" />
-      <workItem from="1640848802340" duration="5037000" />
+      <workItem from="1640848802340" duration="5690000" />
+      <workItem from="1640928477704" duration="5209000" />
     </task>
     <servers />
   </component>
@@ -110,6 +105,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/$.coverage" NAME="날씨 Coverage Results" MODIFIED="1640848243522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/weather$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1640853774161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/weather$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1640935476495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

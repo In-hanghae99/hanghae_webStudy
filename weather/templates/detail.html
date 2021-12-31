@@ -157,6 +157,7 @@
                 }
             })
         } */
+
         $.getJSON('https://api.openweathermap.org/data/2.5/weather?q='+GuName+'&appid=31fcdca165beeaf37fc68b20b23de45f&units=metric', function(result){
             $('.ctemp').append(result.main.temp);
             $('.weather').append(result.weather[0].main);
@@ -166,9 +167,10 @@
 
         });
 
-        $.getJSON('http://apis.data.go.kr/B552584/ArpltnStatsSvc/getCtprvnMesureLIst?serviceKey=eM2m5JnPo36gvd2W7io4zb%2BTs8Z7Ddlw5lG0pOrGjiaquLsm%2B52%2Bf%2BlyLRtEYJDBdPUzOAAETBRC7Cbc2mByYQ%3D%3D&returnType=json&numOfRows=1&pageNo=1&itemCode=PM10&dataGubun=HOUR&searchCondition=MONTH', function(result){
-            {#$('.city').append(GuName);#}
-            $('.mise').append(result.response.body.items.seoul);
+        $.getJSON('http://apis.data.go.kr/B552584/ArpltnStatsSvc/getCtprvnMesureLIst?serviceKey=Y7HxmxmXvIz8qHVYRK4mmw3xAusMhDL5vK4Q0jsB7ONJoy2QSYnUXaapHyeYp4%2BkpO3szyZys52mRkeuTDlROQ%3D%3D&returnType=json&numOfRows=100&pageNo=1&itemCode=PM10&dataGubun=HOUR&searchCondition=MONTH', function(result2){
+            //$('.mise').append(result2.body.items.item.seoul);
+            let json = JSON.stringify(result);
+            console.log(json);
 
         });
 
