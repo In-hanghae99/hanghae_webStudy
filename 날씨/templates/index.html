@@ -66,86 +66,10 @@
         }
     </style>
     <script>
-
-        var detail = '/detail';
-        var detail2 = '/detail2';
-        var detail3 = '/detail3';
-        var detail4 = '/detail4';
-
-        function makewether(){
-            let location = $("#Input1").val();
-            $.ajax({
-                type : "POST",
-                url : "/wether",
-                data : { location_give : location },
-                success: function (response){
-                    console.log(response)
-                    // alert(response['msg']);
-                }
-            })
-        }
-
-        function air() {
-            let name = $('#Input1').val();
-            $.ajax({
-                type: "GET",
-                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
-                data: {},
-                success: function (response) {
-                    let rows = response['RealtimeCityAir']['row']
-                    for (let i = 0; i < rows.length; i++) {
-                        let gu_mise = rows[i]['IDEX_MVL']
-                        let gu_name = rows[i]['MSRSTE_NM']
-                        if (gu_name == name && gu_mise < 80) {
-                            return weather()
-                        } else if (gu_mise > 80 && gu_name == name) {
-                            return weather2()
-                        }
-                    }
-                }
-            })
-        }
-
-        function weather() {
-            let name = $('#Input1').val();
-           $.ajax({
-                type: "GET",
-                url: "http://openapi.seoul.go.kr:8088/7a4e6b634f6e61683439777a735441/json/ListRainfallService/1/55/",
-                data: {},
-                success: function (response) {
-                    let rows = response['ListRainfallService']['row']
-                    for (let i = 0; i < rows.length; i++) {
-                        let gu_name = rows[i]['GU_NAME']
-                        let rain = rows[i]['RAINFALL10']
-                         if (rain > 1 && gu_name == name) {
-                             location.replace(detail4);
-                        } else if (rain == 0 && gu_name == name) {
-                             location.replace(detail2);
-                        }
-                    }
-                }
-            })
-        }
-
-        function weather2() {
-            let name = $('#Input1').val();
-           $.ajax({
-                type: "GET",
-                url: "http://openapi.seoul.go.kr:8088/7a4e6b634f6e61683439777a735441/json/ListRainfallService/1/55/",
-                data: {},
-                success: function (response) {
-                    let rows = response['ListRainfallService']['row']
-                    for (let i = 0; i < rows.length; i++) {
-                        let gu_name = rows[i]['GU_NAME']
-                        let rain = rows[i]['RAINFALL10']
-                         if (rain > 1 && gu_name == name) {
-                             location.replace(detail);
-                        } else if (rain == 0 && gu_name == name) {
-                             location.replace(detail3);
-                        }
-                    }
-                }
-            })
+        //detail페이지로 값 넘기기
+        function sendGuName() {
+            let guName = $('#Input1').val();
+            window.location.href = "/detail?guName=" + guName;
         }
 
     </script>
@@ -199,7 +123,7 @@
                     <option>강동구</option>
                 </select>
             </div>
-            <button type="button" class="btn btn-warning" onclick="air()" >확인하기</button>
+            <button type="button" class="btn btn-warning" onclick="sendGuName()" >확인하기</button>
         </div>
     <footer>
         <div style="display: none">
